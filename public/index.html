@@ -1,0 +1,203 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+<style>
+body{
+  background: #3b9d99;
+  color: #3b9d99;
+}
+#weather {
+  background: #faebd7;
+  max-width:360px;
+  margin: 10px auto;
+  padding:5px 20px 20px 20px;
+  border-radius: 5px;
+  position:relative;
+}
+
+#weather h3 {
+  text-align: center;
+}
+#weather #location {
+  float:right;
+  color: red
+}
+
+#weather .separator{
+  clear:both;
+  margin-bottom:5px;
+  padding: 10px 0;
+  /*border-bottom: 1px solid grey;*/
+}
+
+#weather img {
+  float:left;
+  padding: 0 10px 0px 0;
+  background: #faebd7;
+}
+
+#weather .temp {
+  color: #666;
+  font-size:25px;
+  padding-right:5px;
+
+}
+
+#weather .inline-separator {
+  /*border-right: 1px solid grey*/
+}
+#weather .weather {
+  float:left;
+  width:50%;
+}
+.clear {
+  clear:both;
+}
+
+#weather .temperature {
+  float:right;
+  width:50%;
+  text-align: right;
+}
+
+#weather .temperature img {
+  float:right;
+}
+
+table {
+  width: 100%;
+  border: 1px solid grey;
+}
+
+table tr {
+  border-bottom: 1px solid grey;
+}
+
+table tr td {
+  border-left: 1px solid grey;
+  padding:3px;
+}
+
+table tr:nth-child(odd) {
+  background: #ccc
+}
+#preloader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  background: #faebd7     url('http://jimpunk.net/Loading/wp-content/uploads/loading45.gif') no-repeat center center;
+  border-radius: 5px;
+}
+
+.show{
+  display:block;
+}
+.hide {
+  display:none;
+}
+</style>
+  </head>
+  <body>
+
+    <div id="weather"></div>
+
+    <script type="text/jsx">
+    /** @jsx React.DOM */
+    // dysplay the weather based on your location
+    var Weather = React.createClass({
+      // get initial state
+      getInitialState: function() {
+        // json weather result
+      	return { weather : {
+          main : {},
+          name: null,
+          weather : {},
+          sys: {},
+          other: {},
+          preloader: 'show'
+        } };
+      },
+      // first get the data from API
+      componentDidMount: function() {
+        // get the location
+     navigator.geolocation.getCurrentPosition(function(position){
+          var latitude = position.coords.latitude.toFixed(2);
+          var longitude = position.coords.longitude.toFixed(2);
+          //lat=37.39&lon=-122.09
+          // get the data
+          $.ajax({
+            url: "http://api.openweathermap.org/data/2.5/weather?lat="+ latitude + "&lon=" + longitude + "&units=metric",
+            success: function (data) {
+              // alter state
+              if (this.isMounted()) {
+                 var state = this.state;
+                 state.weather = { main: data.main, name: data.name, weather : data.weather[0], sys : data.sys, preloader : 'hide'};
+                  //console.log(data);
+                 if(['US', 'BS', 'BZ', 'KY', 'PW', 'PR', 'GU', 'VI'].indexOf(data.sys.country) >= 0) {
+                   //fahrenheit
+                   state.weather.other = {
+                     simbol: '&#8457',
+                     temp: Math.round(state.weather.main.temp * 9/5+32)
+                   }
+                 } else {
+                   //celsius
+                   state.weather.other = {
+                     simbol: '&#8451;',
+                     temp:  Math.round(state.weather.main.temp)
+                   }
+                 }
+                 this.setState(state);
+              }
+             }.bind(this)
+          });
+        }.bind(this));
+      },
+      render: function() {
+        // render the data
+        var img = "http://openweathermap.org/img/w/" + this.state.weather.weather.icon + ".png";
+        return(
+          <div>
+            <h3>{this.state.weather.name}</h3>
+            <div className="separator">
+              <div className="inline-separator weather">
+                <img src={img}/>
+                <span>{this.state.weather.weather.main}</span><br/>
+                <span>{this.state.weather.weather.description}</span>
+              </div>
+              <div className="temperature">
+                <img width="40px" src="https://cdn2.iconfinder.com/data/icons/medicine-9/512/temperature-512.png"/>
+                <span className="temp">
+                  {this.state.weather.other.temp}
+                  <span dangerouslySetInnerHTML={{__html: this.state.weather.other.simbol}}></span>
+                </span>
+              </div>
+              <div className="clear"></div>
+            </div>
+            <table cellspacing="10" cellpadding="10">
+              <tr><td width="40%">Ground level:</td><td> {this.state.weather.main.grnd_level}m</td></tr>
+              <tr><td>Humidity:</td><td> {this.state.weather.main.humidity}%</td></tr>
+              <tr><td>Pressure:</td><td> {this.state.weather.main.pressure}%</td></tr>
+              <tr><td>Sea level:</td><td> {this.state.weather.main.sea_level}m</td></tr>
+             </table>
+             <div id="preloader" className={this.state.weather.preloader}></div>
+          </div>
+        )
+      }
+    });
+
+    React.render(<Weather/>, document.getElementById("weather"));
+
+    </script>
+  </body>
+</html>
