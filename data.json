@@ -1,9 +1,9 @@
 {"total":3,"appliances":[
 
-{"name":"Washing Machine", "sensor":"moisture", "thumb":"http://slummysinglemummy.com/wp-content/uploads/2014/10/Servis-FG-washing-machine-roomset.jpg" },
+{"name":"Washing Machine", "sensor":"moisture", "thumb":"http://electricalandplumbing.com.au/wp-content/uploads/2014/05/Washing-machine.jpg" },
 {"name":"Toilet", "sensor":"moisture", "thumb":"http://nemiecovilla.com/wp-content/uploads/2015/01/toilet.jpg" },
 {"name":"Swimming pool", "sensor":"pressure", "thumb":"http://foto.hrsstatic.com/fotos/0/3/256/256/80/000000/http%3A%2F%2Ffoto-origin.hrsstatic.com%2Ffoto%2F3%2F7%2F7%2F6%2F377656%2F377656_p_6334583.jpg/s%2FPGlGz1IIXwbqAdCA%2Fc3g%3D%3D/800,437/6/PATRICIA_GRAND_RESORT_HOTEL-Myrtle_Beach-Pool-8-377656.jpg" },
-{"name":"Bathroom floor", "sensor":"moisture", "thumb":"http://mvmas.com/images/img9/tile-flooring-bathroom-awesome-6.jpg" },
+{"name":"Bathroom floor", "sensor":"moisture", "thumb":"http://homemydesign.com/wp-content/uploads/2013/11/tile-wood-floor-bathroom-decoration.jpg" },
 {"name":"Kitchen Sink", "sensor":"moisture", "thumb":"http://wishyouworkedhere.com/wp-content/uploads/2013/04/509fcf1cac2cb-kitchen-sinks-3.jpg" },
 {"name":"Sewage overflow", "sensor":"pressure", "thumb":"http://3.imimg.com/data3/MS/NB/MY-2078293/water-pipes-250x250.jpg" },
 {"name":"Piping", "sensor":"moisture", "thumb":"http://www.constructionphotography.com/ImageThumbs/A088-05123/3/A088-05123_Drainpipe_and_water_pipe_system_on_a_house.jpg" },
