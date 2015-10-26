@@ -1,0 +1,5 @@
+ [
+  {appliance: 'Washing Machine', sensor: 'moisture', image: {thumbnail: 'http://www.looknreview.com/wp-content/uploads/2015/06/electrolux-washing-machine-2.jpg'}},
+  {appliance: 'Toilet', sensor: 'moisture', image: {thumbnail: 'http://www.plumbingproducts.com/images/pp-leaky-toilet.jpg'}},
+  {appliance: 'Cold water pipe', sensor: 'pressure', image: {thumbnail: 'http://www.servicemasterofbaltimore.com/wp-content/uploads/2014/02/Frozen-Pipes-and-Water-Damage.jpg'}}
+]
