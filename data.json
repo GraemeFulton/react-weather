@@ -1,5 +1,7 @@
- [
-  {appliance: 'Washing Machine', sensor: 'moisture', image: {thumbnail: 'http://www.looknreview.com/wp-content/uploads/2015/06/electrolux-washing-machine-2.jpg'}},
-  {appliance: 'Toilet', sensor: 'moisture', image: {thumbnail: 'http://www.plumbingproducts.com/images/pp-leaky-toilet.jpg'}},
-  {appliance: 'Cold water pipe', sensor: 'pressure', image: {thumbnail: 'http://www.servicemasterofbaltimore.com/wp-content/uploads/2014/02/Frozen-Pipes-and-Water-Damage.jpg'}}
+{"total":3,"appliances":[
+
+{"name":"Washing Machine", "sensor":"moisture", "thumb":"http://www.looknreview.com/wp-content/uploads/2015/06/electrolux-washing-machine-2.jpg" },
+{"name":"Toilet", "sensor":"moisture", "thumb":"http://www.plumbingproducts.com/images/pp-leaky-toilet.jpg" },
+{"name":"Swimming pool pipe", "sensor":"pressure", "thumb":"http://www.servicemasterofbaltimore.com/wp-content/uploads/2014/02/Frozen-Pipes-and-Water-Damage.jpg" }
 ]
+}
