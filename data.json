@@ -6,7 +6,8 @@
 {"name":"Bathroom floor", "sensor":"moisture", "thumb":"http://mvmas.com/images/img9/tile-flooring-bathroom-awesome-6.jpg" },
 {"name":"Kitchen Sink", "sensor":"moisture", "thumb":"http://wishyouworkedhere.com/wp-content/uploads/2013/04/509fcf1cac2cb-kitchen-sinks-3.jpg" },
 {"name":"Sewage overflow", "sensor":"pressure", "thumb":"http://3.imimg.com/data3/MS/NB/MY-2078293/water-pipes-250x250.jpg" },
-{"name":"Piping", "sensor":"moisture", "thumb":"http://www.constructionphotography.com/ImageThumbs/A088-05123/3/A088-05123_Drainpipe_and_water_pipe_system_on_a_house.jpg" }
+{"name":"Piping", "sensor":"moisture", "thumb":"http://www.constructionphotography.com/ImageThumbs/A088-05123/3/A088-05123_Drainpipe_and_water_pipe_system_on_a_house.jpg" },
+{"name":"+", "sensor":"Add new", "thumb":"https://cdn4.iconfinder.com/data/icons/miu/22/circle_add_plus-128.png" }
 
 ]
 }
